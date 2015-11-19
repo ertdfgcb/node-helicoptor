@@ -1,8 +1,8 @@
 var net = require('net');
-var joystick = new (require('./node-joystick/joystick'))(0, 3500, 350);
+var joystick = new (require('./node-joystick/joystick'))(0, 3000, 3);
 
 
-var HOST = '192.168.1.80'
+var HOST = 'localhost'
 var PORT = 5000;
 
 console.log('starting');

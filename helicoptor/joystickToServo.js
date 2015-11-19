@@ -1,6 +1,7 @@
-var joy_min = -32768,
+var b = require('bonescript'),
+ 	joy_min = -32768,
 	joy_max = 32768,
-    servo_const = 0.062;
+    servo_const = 0.05;
 
 module.exports = function(data, servo) {
   if(data.type === 'axis' && servo != null) {
