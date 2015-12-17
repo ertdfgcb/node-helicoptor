@@ -3,7 +3,7 @@ var net = require('net'),
 
 var joystick = new (require('joystick'))(0, config.deadzone, config.sensitivity); 
 
-var HOST = '192.168.1.80'
+var HOST = 'localhost'
 var PORT = 5000;
 
 console.log('starting');
