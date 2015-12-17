@@ -1,5 +1,9 @@
 module.exports = {
 	joy_range: 65536,
+	beaglebone_host: "localhost",
+	beaglebone_port: 5000,
+	deadzone: 3500,
+	sensitivity: 350,
 	controls: [
 		{ // roll
 			pin: 'P9_14',

@@ -4,8 +4,6 @@ var net = require('net'),
 console.log('Starting joystick server');
 
 var joystick = new (require('joystick'))(0, config.deadzone, config.sensitivity),
-	host = 'localhost',
-	port = 5000,
 	client = new net.Socket();
 
 function send (data) {
@@ -13,11 +11,10 @@ function send (data) {
     client.write(str);
 }
 
-client.connect(port, host`, function() {
+client.connect(config.beaglebone_port, config.beaglebone_host, function() {
     joystick.on('button', send);
     joystick.on('axis', send);
-    console.log('CONNECTED TO: ' + HOST + ':' + PORT);
-
+    console.log('CONNECTED TO: ' + config.beaglebone_addr);
 });
 
 client.on('data', function(data) {
