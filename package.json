@@ -1,6 +1,6 @@
 {
   "name": "node-helicoptor",
-  "version": "2.0",
+  "version": "2.1",
   "description": "Code to control a helicoptor drone (beaglebone black) with joysticks plugged into a raspberry pi",
   "main": "server.js",
   "repository": {
