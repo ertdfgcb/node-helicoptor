@@ -1,12 +1,8 @@
 {
   "name": "node-helicoptor",
-  "version": "1.0.0",
+  "version": "2.0",
   "description": "Code to control a helicoptor drone (beaglebone black) with joysticks plugged into a raspberry pi",
   "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ertdfgcb/node-helicoptor.git"
@@ -17,7 +13,7 @@
     "url": "https://github.com/ertdfgcb/node-helicoptor/issues"
   },
   "homepage": "https://github.com/ertdfgcb/node-helicoptor#readme",
-  "dependancies": {
-	  "node-joystick": "latest"
+  "dependencies": {
+	  "joystick": "latest"
   }
 }

@@ -1,6 +1,7 @@
-var net = require('net');
-var joystick = new (require('./node-joystick/joystick'))(0, 3500, 350);
+var net = require('net'),
+	config = require('./config.js');
 
+var joystick = new (require('joystick'))(0, config.deadzone, config.sensitivity); 
 
 var HOST = '192.168.1.80'
 var PORT = 5000;
@@ -11,12 +12,10 @@ var client = new net.Socket();
 
 function send (data) {
     var str = JSON.stringify(data);
-    console.log(str);
     client.write(str);
 }
 
 client.connect(PORT, HOST, function() {
-
     joystick.on('button', send);
     joystick.on('axis', send);
     console.log('CONNECTED TO: ' + HOST + ':' + PORT);
@@ -27,10 +26,8 @@ client.connect(PORT, HOST, function() {
 // Add a 'data' event handler for the client socket
 // data is what the server sent to this socket
 client.on('data', function(data) {
-    
-    console.log('DATA: ' + data);
+    console.log('HELICOPTOR: ' + data);
     // Close the client socket completely
-    
 });
 
 // Add a 'close' event handler for the client socket
