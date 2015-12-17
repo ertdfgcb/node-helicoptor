@@ -18,8 +18,8 @@ function init() {
 	config.controls.forEach(function(c) {
 		b.pinMode(c.pin, b.OUTPUT);
 	});
-	net.createServer(onConnection).listen(config.beaglebone_addr.split(':')[1]);
-	console.log("Chat server running at port "+PORT+"\n");
+	net.createServer(onConnection).listen(config.beaglebone_port);
+	console.log("Server running at port "+port+"\n");
 }
 
 function onData(data) {
