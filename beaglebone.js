@@ -1,7 +1,19 @@
 var b = require('bonescript'),
 	jsToServo = require('./joystickToServo.js'),
 	config = require('./config.js'),
-	net = require('net'),
+	net = require('net');
+
+function jsToServo(input) {
+	conf.controls.forEach(function(c) {
+		if(c.type == input.type && c.number = input.number) {
+			normalized_pos = input.value + (c.joy_range / 2);
+			scale = c.servo_max / c.joy_range;
+			duty_cycle = (normalized_pos * scale * (c.servo_max - c.servo_min)) + c.servo_min;
+			b.analogWrite(c.servo, duty_cycle, 60, null);
+			return;
+		}
+	}
+}
 
 function init() {
 	config.controls.forEach(function(c) {
@@ -13,24 +25,17 @@ function init() {
 
 function onData(data) {
    try {
-       var json = JSON.parse(data.toString());
+	   var json = JSON.parse(data.toString());
 	   setTimeout(jsToServo(json), 200);
    } catch (e) {
-     console.log("err");
+	   console.log("err");
    }
 }
 
 function onConnection(socket) {
-
-  // Identify this client
   socket.name = socket.remoteAddress + ":" + socket.remotePort 
-
-  // On Client Connect
   socket.write("Succesfully connected to BeagleBone. ");
-
-  // Handle incoming messages from clients.
   socket.on('data', onData);
-  // Remove the client from the list when it leaves
   socket.on('end', function () {
     console.log("Client has left")
   });
