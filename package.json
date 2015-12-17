@@ -1,18 +1,13 @@
 {
   "name": "node-helicoptor",
   "version": "2.1",
-  "description": "Code to control a helicoptor drone (beaglebone black) with joysticks plugged into a raspberry pi",
-  "main": "server.js",
+  "author": "Paul O'Day",
+  "license": "ISC",
+  "description": "Control a helicoptor drone (beaglebone black) with joystick plugged into a raspberry pi",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ertdfgcb/node-helicoptor.git"
   },
-  "author": "Paul O'Day and Sean",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ertdfgcb/node-helicoptor/issues"
-  },
-  "homepage": "https://github.com/ertdfgcb/node-helicoptor#readme",
   "dependencies": {
 	  "joystick": "latest"
   }
